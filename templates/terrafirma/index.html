@@ -1,0 +1,26 @@
+{% extends "terrafirma/base.html" %}
+
+{% load staticfiles %}
+
+{% block main %}
+<div class="post">
+	<div class="header">
+		<h3>Lista de aparcamientos:</h3>
+	</div>
+		{{boton|safe}} <br>
+		{% for aparcamiento in aparcamientos %}
+			<div id="title">
+				<br><a href='{{aparcamiento.url}}'>{{aparcamiento.nombre}}</a><br>
+			</div>
+			{{aparcamiento.direccion}} <br>
+			<a href='/aparcamientos/{{aparcamiento.id}}'>Más información</a><br>
+		{% endfor %}
+</div>
+{% endblock %}
+
+{% block side %}
+<h3>Páginas personales</h3>
+<div class="content">
+	<p>{{Lateral|safe}}</p>
+</div>
+{% endblock %}

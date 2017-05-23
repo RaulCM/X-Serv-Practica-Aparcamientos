@@ -1,0 +1,35 @@
+{% extends "terrafirma/base.html" %}
+
+{% load staticfiles %}
+
+{% block menu %}
+<div id="menu">
+	<ul>
+		<li><a href="/">Inicio</a></li>
+		<li><a href="/aparcamientos">Todos</a></li>
+		<li><a href="/about">About</a></li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="post">
+	{{formulario|safe}}
+
+	<div class="header">
+		<h3>Lista de aparcamientos:</h3>
+		{{anterior|safe}}{{siguiente|safe}}
+	</div>
+	<div class="content">
+		{% for elegido in elegidos %}
+			<div id="title">
+				<br><a href='{{aparcamiento.url}}'>{{elegido.aparcamiento.nombre}}</a><br>
+			</div>
+		    {{elegido.aparcamiento.direccion}} <br>
+		    <a href='/aparcamientos/{{elegido.aparcamiento.id}}'>Más información</a><br>
+			Fecha : {{elegido.fecha}} <br>
+		{% endfor %}
+
+	</div>
+</div>
+{% endblock %}

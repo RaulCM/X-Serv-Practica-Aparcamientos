@@ -1,0 +1,80 @@
+{% extends "terrafirma/base.html" %}
+
+{% block menu %}
+<div id="menu">
+	<ul>
+		<li><a href="/">Inicio</a></li>
+		<li><a href="/aparcamientos">Todos</a></li>
+		<li><a href="/about">About</a></li>
+	</ul>
+</div>
+{% endblock %}
+
+{% block main %}
+<div class="mainLarge">
+    <h2>Autor: Raúl Cano Montero</h2></br>
+    <h2>Funcionamiento de la práctica:</h2>
+    <h1>Recurso /:</h1>
+    <p class="about">Página principal de la práctica. Consta de un listado de aparcamientos
+	y otro con enlaces a páginas personales:
+	1. Muestra un listado de los cinco aparcamientos con más comentarios.
+	Si no hay 5 aparcamientos con comentarios, se muestran sólo los
+	que tienen comentarios. Para cada aparcamiento, incluye información
+	sobre:
+	• su nombre (que es un enlace que apunta a la url del aparca-
+	miento en el portal esmadrid),
+	• su dirección,
+	• y un enlace, “Más información”, que apunta a la página del apar-
+	camiento en la aplicación.
+	2. También se muestra un listado, en una columna lateral, con enlaces
+	a las páginas personales disponibles. Para cada página personal muestra
+	el tı́tulo que le haya dado su usuario (como un enlace a la página
+	personal en cuestión) y el nombre del usuario. Si a una página personal
+	aún no se le ha puesto tı́tulo, este tı́tulo es “Página de usuario”,
+	donde “usuario” es el identificador de usuario del usuario en cuestión.
+	3. Tambień se muestra un botón, que al pulsarlo se pasa a ver en todos
+	los listados los aparcamientos accesibles, y sólo estos. Si se vuelve a
+	pulsar, se vuelven a ver todos los aparcamientos.</p><br>
+
+    <h1>Recurso /usuario:</h1>
+    <p class="about">Página personal del usuario en cuestión. En la parte principal,
+    se muestran de cinco en cinco los aparcamientos seleccionados por el usuario,
+    donde para cada aparcamiento se muestra la misma información que en la
+    página principal. Además, para cada uno se indica la fecha en la que fue
+    seleccionado por el usuario. Adicionalmente, si hay un usuario autenticado
+    y este se encuentra en su página personal, se le ofrece en el lateral dos
+    formularios: uno para que indique sus preferencias respecto al CSS (color
+    del fondo y tamaño de la letra) y otro para que elija un título para su
+    página.
+
+	Página personal de un usuario. Muestra los aparcamientos seleccionados
+	por ese usuario (si hay más de 5 deberı́a hay un enlace para mostrar los
+	5 siguientes y ası́ en adelante, siempre de 5 en 5). Para cada aparcamiento
+	se muestra la misma información que en la página principal. Además, para
+	cada aparcamiento se muestra la fecha en la que fue seleccionada por el usuario.</p><br>
+
+    <h1>Recurso /aparcamientos:</h1>
+    <p class="about">Página con todos los aparcamientos. Para cada uno de ellos
+	aparece sólo el nombre y un enlace a su página. En la parte superior de la
+	página, existe un formulario que permite filtrar estos aparcamientos según
+	el distrito.</p><br>
+
+    <h1>Recurso /aparcamientos/id:</h1>
+    <p class="about">Página de un aparcamiento en la aplicación. Muestra información del XML del
+	portal de datos abierto del Ayuntamiento de Madrid (latitud y longitud, la
+	descripción, si es accesible o no, el barrio y el distrito, y los datos
+	de contacto). Además, se muestran todos los comentarios que se hayan puesto
+	para este aparcamiento.</p><br>
+
+    <h1>Recurso /usuario/xml:</h1>
+    <p class="about">Canal XML para los aparcamientos seleccionados por ese usuario.
+	El documento XML tiene una entrada para cada aparcamiento seleccionado por
+	el usuario, y  una estructura similar a la del fichero XML del portal
+	del Ayuntamiento.</p><br>
+
+    <h1>Recurso /about:</h1>
+    <p class="about">Página con información en HTML indicando la autorı́a de la
+	práctica y explicando su funcionamiento.</p><br>
+
+</div>
+{% endblock %}
