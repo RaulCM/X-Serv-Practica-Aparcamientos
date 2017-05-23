@@ -32,7 +32,6 @@ class Aparcamiento(models.Model):
 class PaginaUsuario(models.Model):
     usuario = models.OneToOneField(User)
     titulo = models.CharField(max_length=200, default="")
-    accesibilidad = models.IntegerField(default=0)
     color = models.CharField(max_length=200, default="")
     size = models.CharField(max_length=200, default="")
 
