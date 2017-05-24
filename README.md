@@ -10,6 +10,7 @@ Canal XML para contenidos de la página principal.
 Generación de canales con contenidos en JSON.
 Generación de un canal RSS para los comentarios puestos en el sitio.
 Registro de usuarios.
+Uso de elementos HTML 5: vídeo en la página principal.
 <b>URL del vídeo de la funcionalidad básica:</b> https://youtu.be/UlhlCCyNvsk<br>
 <b>Comentarios sobre el vídeo:</b>El vídeo ha sido grabado con kdenlive y editado con openshot para eliminar tiempos de espera.
 En el vídeo hay veces que se puede ver que aparece el fondo de pantalla de mi ordenador, esto se debe a un problema de mi tarjeta gráfica con Linux Mint que hace que se produzca screen tearing además de este problema.<br>
