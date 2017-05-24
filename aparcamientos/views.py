@@ -366,6 +366,26 @@ def xml(request, resource):
     return HttpResponse(response, status=200, content_type="text/xml")
 
 
+def xmlmain(request):
+    template = get_template('xml/canales_main.xml')
+    lista_aparcamientos = Aparcamiento.objects.all().order_by('-nComentarios')
+    lista_aparcamientos = lista_aparcamientos.exclude(nComentarios=0)
+    lista_aparcamientos = lista_aparcamientos.filter(accesibilidad=0)
+    lista_aparcamientos = lista_aparcamientos[0:5]
+    c = RequestContext(request, {'aparcamientos': lista_aparcamientos})
+    response = template.render(c)
+    return HttpResponse(response, status=200, content_type="text/xml")
+
+
+def rss(request):
+    template = get_template('rss/canales_comentarios.rss')
+    comentarios = Comentarios.objects.all()
+    c = RequestContext(request, {'comentarios': comentarios})
+    response = template.render(c)
+    return HttpResponse(response, status=200, content_type="text/rss")
+
+
+
 @csrf_exempt
 def login_view(request):
     username = request.POST['username']

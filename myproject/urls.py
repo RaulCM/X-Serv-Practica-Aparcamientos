@@ -26,6 +26,8 @@ urlpatterns = [
     url(r'^about$', views.about, name="Información"),
     url(r'^admin/', include(admin.site.urls)),
     url(r'^$', views.main, name="Pagina principal"),
+    url(r'^xml$', views.xmlmain, name=""),
+    url(r'^rss$', views.rss, name=""),
     url(r'^aparcamientos$', views.parkings,
         name="Página con todos los aparcamientos"),
     url(r'^aparcamientos/(\d+)$', views.parking,

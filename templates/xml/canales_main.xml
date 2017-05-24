@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Contenidos>
+	<infoDataset>
+		<nombre>Lista de aparcamientos</nombre>
+	</infoDataset>
+	{% for aparcamiento in aparcamientos %}
+	<contenido>
+		<tipo>EntidadesYOrganismos</tipo>
+		<atributos idioma="es">
+			<atributo nombre="ID-ENTIDAD">{{ aparcamiento.entidad }}</atributo>
+			<atributo nombre="NOMBRE">{{ aparcamiento.nombre }}</atributo>
+			<atributo nombre="DESCRIPCION">{{ aparcamiento.descripcion }}</atributo>
+			<atributo nombre="ACCESIBILIDAD">{{ aparcamiento.accesibilidad }}</atributo>
+			<atributo nombre="CONTENT-URL">{{ aparcamiento.url }}</atributo>
+			<atributo nombre="LOCALIZACION">
+				<atributo nombre="NOMBRE-VIA">{{ aparcamiento.nombrevia }}</atributo>
+				<atributo nombre="CLASE-VIAL">{{ aparcamiento.clasevial }}</atributo>
+				<atributo nombre="TIPO-NUM">{{ aparcamiento.tiponum }}</atributo>
+				<atributo nombre="NUM">{{ aparcamiento.num }}</atributo>
+				<atributo nombre="LOCALIDAD">{{ aparcamiento.localidad }}</atributo>
+				<atributo nombre="PROVINCIA">{{ aparcamiento.provincia }}</atributo>
+				<atributo nombre="CODIGO-POSTAL">{{ aparcamiento.codigopostal }}</atributo>
+				<atributo nombre="BARRIO">{{ aparcamiento.barrio }}</atributo>
+				<atributo nombre="DISTRITO">{{ aparcamiento.distrito }}</atributo>
+				<atributo nombre="COORDENADA-X">{{ aparcamiento.coordX }}</atributo>
+				<atributo nombre="COORDENADA-Y">{{ aparcamiento.coordY }}</atributo>
+				<atributo nombre="LATITUD">{{ aparcamiento.latitud }}</atributo>
+				<atributo nombre="LONGITUD">{{ aparcamiento.longitud }}</atributo>
+			</atributo>
+			<atributo nombre="DATOSCONTACTOS">
+				<atributo nombre="TELEFONO">{{ aparcamiento.telefono }}</atributo>
+				<atributo nombre="EMAIL">{{ aparcamiento.email }}</atributo>
+			</atributo>
+			<atributo nombre="TIPO">/contenido/entidadesYorganismos/AparcamientosResidentes</atributo>
+		</atributos>
+	</contenido>
+	{% endfor %}
+</Contenidos>
