@@ -1,0 +1,32 @@
+{
+    "aparcamientos": {
+        "informacion": "Lista de aparcamientos más comentados",
+        {% for aparcamiento in aparcamientos %}
+        "aparcamiento":{
+			"ID-ENTIDAD": "{{ aparcamiento.entidad }}",
+			"NOMBRE": "{{ aparcamiento.nombre }}",
+			"DESCRIPCION": "{{ aparcamiento.descripcion }}",
+			"ACCESIBILIDAD": "{{ aparcamiento.accesibilidad }}",
+			"CONTENT-URL": "{{ aparcamiento.url }}",
+			"LOCALIZACION": {
+				"NOMBRE-VIA": "{{ aparcamiento.nombrevia }}",
+				"CLASE-VIAL": "{{ aparcamiento.clasevial }}",
+				"TIPO-NUM": "{{ aparcamiento.tiponum }}",
+				"NUM": "{{ aparcamiento.num }}",
+				"LOCALIDAD": "{{ aparcamiento.localidad }}",
+				"PROVINCIA": "{{ aparcamiento.provincia }}",
+				"CODIGO-POSTAL": "{{ aparcamiento.codigopostal }}",
+				"BARRIO": "{{ aparcamiento.barrio }}",
+				"DISTRITO": "{{ aparcamiento.distrito }}",
+				"COORDENADA-X": "{{ aparcamiento.coordX }}",
+				"COORDENADA-Y": "{{ aparcamiento.coordY }}",
+				"LATITUD": "{{ aparcamiento.latitud }}",
+				"LONGITUD": "{{ aparcamiento.longitud }}"
+			},
+			"DATOSCONTACTOS": {
+				"TELEFONO": "{{ aparcamiento.telefono }}",
+				"EMAIL": "{{ aparcamiento.email }}",
+			},
+        }{% endfor %}
+    }
+}

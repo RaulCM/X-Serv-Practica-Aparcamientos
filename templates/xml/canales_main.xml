@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Contenidos>
 	<infoDataset>
-		<nombre>Lista de aparcamientos</nombre>
+		<nombre>Lista de aparcamientos más comentados</nombre>
 	</infoDataset>
 	{% for aparcamiento in aparcamientos %}
 	<contenido>

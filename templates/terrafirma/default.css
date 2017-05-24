@@ -109,6 +109,11 @@ width: 226px;
 height: 92px;
 }
 
+#header form a
+{
+    color: white;
+}
+
 #menu
 {
 position: relative;

@@ -1,0 +1,32 @@
+{
+    "aparcamientos": {
+        "informacion": "Canal JSON de {{ usuario }}",
+        {% for elegido in elegidos %}
+        "aparcamiento":{
+			"ID-ENTIDAD": "{{ elegido.aparcamiento.entidad }}",
+			"NOMBRE": "{{ elegido.aparcamiento.nombre }}",
+			"DESCRIPCION": "{{ elegido.aparcamiento.descripcion }}",
+			"ACCESIBILIDAD": "{{ elegido.aparcamiento.accesibilidad }}",
+			"CONTENT-URL": "{{ elegido.aparcamiento.url }}",
+			"LOCALIZACION": {
+				"NOMBRE-VIA": "{{ elegido.aparcamiento.nombrevia }}",
+				"CLASE-VIAL": "{{ elegido.aparcamiento.clasevial }}",
+				"TIPO-NUM": "{{ elegido.aparcamiento.tiponum }}",
+				"NUM": "{{ elegido.aparcamiento.num }}",
+				"LOCALIDAD": "{{ elegido.aparcamiento.localidad }}",
+				"PROVINCIA": "{{ elegido.aparcamiento.provincia }}",
+				"CODIGO-POSTAL": "{{ elegido.aparcamiento.codigopostal }}",
+				"BARRIO": "{{ elegido.aparcamiento.barrio }}",
+				"DISTRITO": "{{ elegido.aparcamiento.distrito }}",
+				"COORDENADA-X": "{{ elegido.aparcamiento.coordX }}",
+				"COORDENADA-Y": "{{ elegido.aparcamiento.coordY }}",
+				"LATITUD": "{{ elegido.aparcamiento.latitud }}",
+				"LONGITUD": "{{ elegido.aparcamiento.longitud }}"
+			},
+			"DATOSCONTACTOS": {
+				"TELEFONO": "{{ elegido.aparcamiento.telefono }}",
+				"EMAIL": "{{ elegido.aparcamiento.email }}",
+			},
+        }{% endfor %}
+    }
+}
