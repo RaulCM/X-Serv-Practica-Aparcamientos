@@ -409,7 +409,6 @@ def rss(request):
     return HttpResponse(response, status=200, content_type="text/rss")
 
 
-
 @csrf_exempt
 def login_view(request):
     username = request.POST['username']
@@ -444,7 +443,7 @@ def registro(request):
         formulario = ""
         username = request.POST['username']
         password = request.POST['password']
-        usuario = User.objects.create_user(username = username, password = password)
+        usuario = User.objects.create_user(username=username, password=password)
         usuario.save()
         return HttpResponseRedirect('/')
     else:
@@ -456,6 +455,7 @@ def registro(request):
     c = RequestContext(request, {'formulario': formulario})
     response = template.render(c)
     return HttpResponse(response, status=200)
+
 
 def about(request):
     template = get_template('terrafirma/about.html')
