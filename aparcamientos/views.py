@@ -82,7 +82,7 @@ def main(request):
             boton = "<form method = 'POST'><button type='submit' "
             boton += "name='Cargar' value=1>Cargar información de "
             boton += "aparcamientos</button><br>"
-            c = RequestContext(request, {'Parkings': boton})
+            c = RequestContext(request, {'boton': boton})
         elif request.method == 'POST':
             datos = request.body.decode('utf-8').split("=")[1]
             parser()
@@ -95,7 +95,7 @@ def main(request):
     else:
         if request.method == 'GET':
             lista_aparcamientos = Aparcamiento.objects.all().order_by('-nComentarios')
-            lista_aparcamientos = Aparcamiento.objects.exclude(nComentarios=0)
+            lista_aparcamientos = lista_aparcamientos.exclude(nComentarios=0)
             lista_aparcamientos = lista_aparcamientos[0:5]
             boton = "<form method = 'POST'><button type='submit' "
             boton += "name='Accesibilidad' value=1>"
@@ -104,14 +104,15 @@ def main(request):
             accesibilidad = request.body.decode('utf-8').split("=")[1]
             if int(accesibilidad) == 1:
                 lista_aparcamientos = Aparcamiento.objects.all().order_by('-nComentarios')
-                lista_aparcamientos = Aparcamiento.objects.filter(accesibilidad=1)
+                lista_aparcamientos = lista_aparcamientos.exclude(nComentarios=0)
+                lista_aparcamientos = lista_aparcamientos.filter(accesibilidad=1)
                 lista_aparcamientos = lista_aparcamientos[0:5]
                 boton = "<form method = 'POST'><button type='submit' "
                 boton += "name='Accesibilidad' value=0>Mostrar "
                 boton += "todos los aparcamientos</button>"
             elif int(accesibilidad) == 0:
                 lista_aparcamientos = Aparcamiento.objects.all().order_by('-nComentarios')
-                lista_aparcamientos = Aparcamiento.objects.exclude(nComentarios=0)
+                lista_aparcamientos = lista_aparcamientos.exclude(nComentarios=0)
                 lista_aparcamientos = lista_aparcamientos[0:5]
                 boton = "<form method = 'POST'><button type='submit' "
                 boton += "name='Accesibilidad' value=1>"
@@ -336,7 +337,7 @@ def parking(request, resource):
             aparcamiento = Aparcamiento.objects.get(id=resource)
             comentario = Comentarios()
             comentario.aparcamiento = aparcamiento
-            comentario.texto = request.body.decode('utf-8').split("=")[1]
+            comentario.texto = request.body.decode('utf-8').split("=")[1].replace("+", " ")
             comentario.save()
             aparcamiento.nComentarios = aparcamiento.nComentarios + 1
             aparcamiento.save()
